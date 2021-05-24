@@ -5,8 +5,10 @@ from .managers import MyUserManager
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=100, unique=True)
     full_name = models.CharField(max_length=200)
+    
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['full_name']
 
