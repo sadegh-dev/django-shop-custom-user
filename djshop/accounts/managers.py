@@ -10,10 +10,7 @@ class MyUserManager(BaseUserManager):
         if not full_name :
             raise ValueError('you must Enter full name ')
         
-        user = self.model(
-            email = self.normalize_email(email),
-            full_name = full_name
-        )
+        user = self.model(email = self.normalize_email(email), full_name = full_name )
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -23,4 +20,4 @@ class MyUserManager(BaseUserManager):
         user = self.create_user(email, full_name, password)
         user.is_admin = True
         user.save(using=self._db)
-        return user
+        return user 

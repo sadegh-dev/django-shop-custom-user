@@ -12,13 +12,13 @@ class UserAdmin(BaseUserAdmin):
     list_filter= ('is_admin',)
     fieldsets = (
         (None, {'fields':('full_name','email','password')}),
-        ('Personal Info', {'fields':('is_active')}),
-        ('Permissions', {'fields':('is_admin')}),
+        ('Personal Info', {'fields':('is_active',)}),
+        ('Permissions', {'fields':('is_admin',)}),
     )
     add_fieldsets = (
         (None, {
             'fields':('full_name','email','password1','password2')
-        })
+        }),
     )
     search_fields = ('email',)
     ordering = ('email',)
@@ -28,4 +28,4 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
 
-
+ 
